@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>과제</title>
+  </head>
+  <body>
+    <div id="intro">
+      <p id="description">쿼리 셀렉터를 이용하여 색깔 바꾸기</p>
+      <button id="colorButton">문장 색상 변경</button>
+    </div>
+
+    <script>
+      // 요소 선택
+      const introDiv = document.getElementById("intro");
+      const description = document.getElementById("description");
+      const colorButton = document.getElementById("colorButton");
+
+      // 버튼 클릭 이벤트 리스너 추가
+      colorButton.addEventListener("click", () => {
+        // 문장 텍스트 색상 변경
+        if (description.style.color != "blue") {
+          description.style.color = "blue";
+          colorButton.innerText = "색상 변경됨!";
+        } else {
+          description.style.color = "black";
+          colorButton.innerText = "문장 색상 변경";
+        }
+
+        // 버튼 텍스트 변경
+      });
+    </script>
+  </body>
+</html>
