@@ -1,0 +1,76 @@
+html,body {
+  width: 100%;
+  margin: 0;
+  height: 100%;
+}
+#root{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.App{
+  margin-top:  12px;
+  width: 50%;
+  height: 90%;
+  border-radius: 20px;
+  background-color: rgb(246, 162, 161);
+}
+.headerStyle{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  color:white;
+}
+.headerBtn{
+  user-select: none;
+}
+.headerBtn:hover{
+  text-decoration-line: underline;
+}
+
+.mgL12{
+  margin: 0 12px 0 12px;
+}
+
+.contents{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkBoxStyle{
+  width: 20px;
+  height: 20px;
+  border: none;
+
+}
+
+.inputStyle{
+  width: 500px;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: aliceblue;
+}
+
+.inputText{
+  width: 340px;
+  height: 30px;
+  outline: none;
+  user-select: none;
+}
+.completeText {
+  width: 340px;
+  height: 30px;
+  outline: none;
+  user-select: none;
+  text-decoration-line: line-through;
+}
+
