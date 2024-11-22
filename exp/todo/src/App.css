@@ -25,12 +25,10 @@ html,body {
   color:white;
 }
 .headerBtn{
+  cursor: pointer;
   user-select: none;
-}
-.headerBtn:hover{
   text-decoration-line: underline;
 }
-
 .mgL12{
   margin: 0 12px 0 12px;
 }
