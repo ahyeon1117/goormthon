@@ -24,7 +24,7 @@ html,body {
   user-select: none;
   color:white;
 }
-.headerBtn{
+.headerBtn {
   cursor: pointer;
   user-select: none;
   text-decoration-line: underline;
