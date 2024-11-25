@@ -134,6 +134,8 @@ html, body{
       padding: 10px;
       border-radius: 10px;
       outline: none;
+      background-color: #2f373a;
+      color: white;
       border: 1px solid gray
     }
   .repo-box{
