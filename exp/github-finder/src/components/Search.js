@@ -3,6 +3,7 @@ import { React, useState } from "react";
 function Search({ search }) {
   const [username, setUsername] = useState("");
 
+  // EnterKey 입력시 부모에 있는 search 메소드를 Data를 전달하여  실행
   const handleKeyUp = (e) => {
     if (e.key === "Enter") {
       e.preventDefault(); // 기본 폼 제출 방지

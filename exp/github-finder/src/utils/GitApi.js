@@ -19,16 +19,17 @@ class GitHub {
       return response.data;
     } catch (error) {
       console.error("Failed to fetch user data:", error.message);
-      throw error; // 에러 전달
+      throw error;
     }
   }
+
   async get(url) {
     try {
       const response = await this.apiClient.get(`${url}`);
       return response.data;
     } catch (error) {
       console.error("Failed to fetch user data:", error.message);
-      throw error; // 에러 전달
+      throw error;
     }
   }
 }

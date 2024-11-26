@@ -1,4 +1,5 @@
 class Random {
+  // 생일 랜덤 생성 함수
   getRandomBirthday() {
     const startYear = 2000;
     const endYear = 2023;
@@ -13,6 +14,7 @@ class Random {
     // Date 객체로 생일 생성
     return `${randomYear}년 ${randomMonth}월 ${randomDay}일`;
   }
+
   chooseRandom(randomArr) {
     const randomIndex = Math.floor(Math.random() * randomArr.length);
     return randomArr[randomIndex];
