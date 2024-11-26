@@ -141,6 +141,27 @@ html, body{
       color: white;
       border: 1px solid gray
     }
+  .heatmap{
+    width: 80%;
+    height: 300px;
+  }
+  .heatmap .day {
+    width: 20px; /* 셀 너비 */
+    height: 20px; /* 셀 높이 */
+  }
+  .color-empty {
+    fill: #ebedf0;
+  }
+  .color-low {
+    fill: #c6e48b;
+  }
+  .color-medium {
+    fill: #7bc96f;
+  }
+  .color-high {
+    fill: #196127;
+  }
+    
   .repo-box{
     width: 100%;
     margin: 12px;

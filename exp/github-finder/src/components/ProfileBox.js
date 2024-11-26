@@ -14,7 +14,7 @@ function ProfileBox({ profileImg, profileUrl, cntObj }) {
     <div className="profileBox">
       <ul>
         <li className="mgt12">
-          <img src={profileImg} />
+          <img src={profileImg} alt="profileImg" />
         </li>
         <li>
           <div className="first-color">Public Repos : {cntObj.repoCnt}</div>

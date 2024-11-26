@@ -1,6 +1,5 @@
 import { React } from "react";
 function RepoBox({ repoArr }) {
-  console.log(repoArr);
   return (
     <div className="repo-box">
       <h1>Latest Repos</h1>
@@ -9,7 +8,7 @@ function RepoBox({ repoArr }) {
           <tr key={index}>
             <td>
               <h3>
-                <a href={repo.html_url} target="_blank">
+                <a href={repo.html_url} target="_blank" rel="noreferrer">
                   {repo.name}
                 </a>
               </h3>
