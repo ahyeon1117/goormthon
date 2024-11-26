@@ -6,5 +6,5 @@
 
 ```mermaid
 flowchart BT
-Search & ProfileBox & RepoBox --> App.js
+Search & ProfileBox & RepoBox <--> App.js
 ```
