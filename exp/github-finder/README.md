@@ -5,7 +5,9 @@
 ## 코드 설명
 
 JS를 이용하여 OOP 사용 (객체 지향을 사용하기 위해 Utils 파일들은 Class로 작성 컴포넌트 파일들은 function component로 작성하였습니다.) 
+
 비동기 API 호출 (API 호출시 Async await을 사용하여 비동기 호출을 사용하였습니다 위치 = GitApi.js, App.js에서 확인하실 수 있습니다.) 
+
 잔디밭 기능 혹은 Sprint 추가. (잔디심기 기능을 추가하였고 API가 레포별로만 제공을 하여서 Grapql으로 하면 가능하지만 Axios를 이용한 API로 data를 제공 받고있기 떄문에 사용자마다 있는 메인 레포를 받게 하였습니다.) 
 
 ### 폴더 구조
