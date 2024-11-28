@@ -1,28 +1,39 @@
-// import React,{useState,useEffect} from 'react';
-import {Movie} from "../types/Movie"
+import React from "react";
+import { Movie } from "../types/Movie";
+import { useContext } from "react";
+import { ApiContext } from "../App";
+
 interface MovieListProps {
-  movies: Movie |  undefined;
+    movies: Movie | undefined;
 }
 
 function MovieList({ movies }: MovieListProps) {
-  if (!movies) {
-    return <p>영화 정보를 불러올 수 없습니다.</p>; // undefined인 경우 처리
-  }
-  return (
-    <div className="app">
-      {movies.boxOfficeResult.dailyBoxOfficeList.length > 0 ? (
-        <ul>
-          {movies.boxOfficeResult.dailyBoxOfficeList.map((movie) => (
-            <li key={movie.movieCd}>
-              {movie.movieCd} / {movie.movieNm}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>표시할 영화가 없습니다.</p>
-      )}
-    </div>
-  );
+    const context = useContext(ApiContext);
+    if (!context) {
+        return <p>API 정보를 사용할 수 없습니다.</p>;
+    }
+    const { baseUrl } = context;
+
+    if (!movies) {
+        return <p>영화 정보를 불러올 수 없습니다.</p>;
+    }
+
+    return (
+        <div className="app">
+            <p>Base URL: {baseUrl}</p>
+            {movies.boxOfficeResult.dailyBoxOfficeList.length > 0 ? (
+                <ul>
+                    {movies.boxOfficeResult.dailyBoxOfficeList.map((movie) => (
+                        <li key={movie.movieCd}>
+                            {movie.movieCd} / {movie.movieNm}
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p>표시할 영화가 없습니다.</p>
+            )}
+        </div>
+    );
 }
 
 export default MovieList;

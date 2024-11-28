@@ -1,42 +1,58 @@
-import React,{useState,useEffect} from 'react';
-import ApiClient from './utils/ApiClient';
-import { Movie } from './types/Movie';
-import MovieList from './components/MovieList';
+import { createContext, useState, useEffect } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import ApiClient from "./utils/ApiClient";
+import { Movie } from "./types/Movie";
+import Home from "./Home";
+import MovieList from "./components/MovieList";
 
+interface Api {
+  baseUrl: string;
+}
+
+export const ApiContext = createContext<Api | undefined>(undefined);
 
 function App() {
-  const [movies, setMovies] = useState<Movie>();
+  const [movies, setMovies] = useState<Movie | undefined>(undefined);
   const [error, setError] = useState<string | null>(null);
   const apiClient = new ApiClient();
-  // const today = new Date();
-
-  // function formatDateToYYYYMMDD(date: Date): string {
-  //   const year = date.getFullYear(); // 연도 가져오기
-  //   const month = (date.getMonth() + 1).toString().padStart(2, '0'); // 월은 0부터 시작하므로 +1, 두 자리로 포맷
-  //   const day = date.getDate().toString().padStart(2, '0'); // 일자 두 자리로 포맷
-  
-  //   return `${year}${month}${day}`;
-  // }
+  const api: Api = {
+    baseUrl: "http://kobis.or.kr/kobisopenapi/webservice/rest",
+  };
   const fetchMovies = async () => {
     try {
       setError(null);
-      const response:Movie = await apiClient.get(
-        `http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${process.env.REACT_APP_API_KEY}&targetDt=20120101`
+      const response: Movie = await apiClient.get(
+        `${api.baseUrl}/boxoffice/searchDailyBoxOfficeList.json?key=${process.env.REACT_APP_API_KEY}&targetDt=20120101`
       );
       setMovies(response);
     } catch (err) {
-      setError('Failed to fetch movie data.');
+      console.error("Failed to fetch movie data:", err);
+      setError("Failed to fetch movie data.");
     }
   };
+
   useEffect(() => {
     fetchMovies();
   }, []);
-  
-  console.log(movies);
+
+
+
   return (
-    <div className="app">
-      <MovieList movies={movies}></MovieList>
-    </div>
+    <ApiContext.Provider value={api}>
+      <div>
+        {error && <div>{error}</div>}
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/movies">Movies</Link></li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<MovieList movies={movies} />} />
+        </Routes>
+      </div>
+    </ApiContext.Provider>
   );
 }
 
