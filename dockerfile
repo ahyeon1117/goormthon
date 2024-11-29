@@ -2,14 +2,14 @@ FROM node:18-alpine
 
 WORKDIR /src
 
-COPY ./movie-app/package.json .
+# COPY ./exp/lv4-react-basics/movie-app/package.json .
+COPY ./exp/lv4-react-basics/movie-app/ .
 
 # RUN yarn
 # or
 RUN npm install 
 RUN npm run build
 
-COPY . .
 
 EXPOSE 3000
 
