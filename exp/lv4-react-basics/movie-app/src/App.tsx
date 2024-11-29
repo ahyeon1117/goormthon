@@ -1,9 +1,10 @@
 import { createContext, useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import ApiClient from "./utils/ApiClient";
-import { Movie } from "./types/Movie";
+import { DailyBoxOfficeList, Movie } from "./types/Movie";
 import Home from "./Home";
 import MovieList from "./components/MovieList";
+import MovieDetail from "./components/MovieDetail";
 
 interface Api {
   baseUrl: string;
@@ -26,14 +27,14 @@ function App() {
       );
       setMovies(response);
     } catch (err) {
-      console.error("Failed to fetch movie data:", err);
       setError("Failed to fetch movie data.");
+      console.error("Failed to fetch movie data:", err);
     }
   };
 
   useEffect(() => {
     fetchMovies();
-  }, []);
+  },[]);
 
 
 
@@ -50,6 +51,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/movies" element={<MovieList movies={movies} />} />
+          <Route path="/movies/:id" element={<MovieDetail movies={movies} />} />
         </Routes>
       </div>
     </ApiContext.Provider>
