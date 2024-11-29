@@ -12,5 +12,4 @@ class OneRepMax {
 		int repeat = Integer.parseInt(inputArr[1]);
 		System.out.println(weight * (1 + 30/repeat));
 	}
-  
 }
