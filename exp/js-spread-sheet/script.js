@@ -71,6 +71,8 @@ function handleCellClick(cell) {
 
   columnHeaderEl.classList.add("active");
   rowHeaderEl.classList.add("active");
+  document.querySelector("#cell-status").innerHTML =
+    cell.columnName + cell.rowName;
 }
 function clearHeaderActiveStates() {
   const headers = document.querySelectorAll(".header");
