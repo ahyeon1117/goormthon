@@ -1,5 +1,6 @@
 import { Movie, DailyBoxOfficeList } from "../types/Movie";
 import { useParams } from "react-router-dom";
+import posterImg from "../assets/img/grid2.jpeg"
 
 interface MovieDetailProps {
   movies: Movie | undefined;
@@ -49,6 +50,7 @@ function MovieDetail({ movies } : MovieDetailProps) {
   // 렌더링
   return (
     <div className="app">
+      <img src={posterImg} alt="munzi" width={400} height={400}/>
       <h1>{movieDetail.movieNm} 상세 정보</h1>
       <ul>
         {Object.keys(movieDetail).map((key) => (
