@@ -1,0 +1,22 @@
+server:
+  port: 1117
+spring:
+  devtools:
+    restart:
+      enabled: true # 재시작 활성화
+    livereload:
+      enabled: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  # spring - h2 연결
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:goormthon # In-Memory mode
+    username: goormthon
+    password: goormthon
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false

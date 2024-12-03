@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spring Web Scopes</title>
+  </head>
+  <body>
+    <h1>Spring Web Scopes</h1>
+    <p>
+      <strong>Request Scope Bean Created At:</strong>
+      <span th:text="${requestScopeTime}"></span>
+    </p>
+    <p>
+      <strong>Session Scope Bean Created At:</strong>
+      <span th:text="${sessionScopeTime}"></span>
+    </p>
+    <p>
+      <strong>Application Scope Bean Created At:</strong>
+      <span th:text="${applicationScopeTime}"></span>
+    </p>
+  </body>
+</html>
