@@ -12,22 +12,22 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 public class LocaleConfig implements WebMvcConfigurer {
 
     @Bean
-    public ResourceBundleMessageSource messageSource() {
+    public  ResourceBundleMessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("messages");
+        messageSource.setBasename("language");
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }
 
     @Bean
-    public LocaleResolver localeResolver() {
+    public  LocaleResolver localeResolver() {
         CookieLocaleResolver resolver = new CookieLocaleResolver();
-        resolver.setDefaultLocale(java.util.Locale.KOREA); // 기본 로케일 설정
+        resolver.setDefaultLocale(java.util.Locale.ENGLISH); // 기본 로케일 설정
         return resolver;
     }
 
     @Bean
-    public LocaleChangeInterceptor localeChangeInterceptor() {
+    public  LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
         interceptor.setParamName("lang"); // URL 파라미터로 로케일 변경
         return interceptor;
